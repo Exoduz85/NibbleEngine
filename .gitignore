@@ -1,0 +1,96 @@
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+# Debug files
+*.pdb
+*.ilk
+
+# Visual Studio cache files
+ipch/
+*.aps
+*.ncb
+*.sdf
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Visual Studio project files
+*.sln
+*.suo
+*.vcxproj
+*.vcxproj.filters
+
+# Build folders (adjust the path as needed)
+build/
+bin/
+obj/
+
+# Dependency directories (like vcpkg, if not needed in the repository)
+vcpkg/
+vendor/
+
+# Backup & log files
+*.bak
+*.log
+*.sql
+*.sqlite
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE and editor folders
+.idea/
+.vs/
+
+# Build output directories
+Debug/
+Release/
+x64/
+*.tlog/
+*.idb
+
+# User-specific files
+*.vcxproj.user
+*.userosscache
+*.sln.docstates
+
+# Other files and folders to ignore
+*.db
+*.opendb
