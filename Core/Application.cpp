@@ -1,10 +1,12 @@
 ﻿#include "Application.h"
 #include "Config.h"
+#include "InputManager.h"
 #include <iostream>
 
-Application::Application() : window(nullptr), shader(nullptr), mesh(nullptr) {
+Application::Application() : window(nullptr), shader(nullptr), mesh(nullptr), inputManager(nullptr) {
 	initGLFW();
 	initGLEW();
+	initInput();
 	initGraphics();
 }
 
@@ -40,6 +42,12 @@ void Application::initGLEW() {
 	}
 }
 
+void Application::initInput()
+{
+	inputManager = new InputManager();
+	inputManager->setWindow(window);
+}
+
 void Application::initGraphics() {
 	shader = new Shader(Config::VertexShaderPath, Config::FragmentShaderPath);
 	float vertices[] = {
@@ -52,7 +60,7 @@ void Application::initGraphics() {
 
 void Application::mainLoop() {
 	while (!glfwWindowShouldClose(window)) {
-		if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) {
+		if (inputManager->isKeyPressed(GLFW_KEY_ESCAPE)) {
 			glfwSetWindowShouldClose(window, GLFW_TRUE);
 		}
 
@@ -63,12 +71,15 @@ void Application::mainLoop() {
 
 		glfwSwapBuffers(window);
 		glfwPollEvents();
+		inputManager->update();
 	}
 }
 
 void Application::cleanup() {
 	delete shader;
 	delete mesh;
-	glfwDestroyWindow(window);
+	if (window) {
+		glfwDestroyWindow(window);
+	}
 	glfwTerminate();
 }
