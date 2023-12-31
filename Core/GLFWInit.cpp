@@ -1,6 +1,6 @@
 ﻿#include "GLFWInit.h"
 
-GLFWwindow* initGLFW() {
+GLFWwindow* init_GLFW() {
 	if (!glfwInit()) {
 		return nullptr;
 	}

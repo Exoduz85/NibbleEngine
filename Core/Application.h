@@ -3,10 +3,13 @@
 
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
-
-#include "InputManager.h"
+#include "Config.h"
+#include <iostream>
 #include "../Graphics/Mesh.h"
 #include "../Graphics/Shader.h"
+#include "Camera.h"
+#include "InputHandler.h"
+#include "../Graphics/SimpleObject.h"
 
 class Application {
 public:
@@ -18,13 +21,16 @@ private:
 	GLFWwindow* window;
 	Shader* shader;
 	Mesh* mesh;
-	InputManager* inputManager;
-	
-	void initGLFW();
-	void initGLEW();
-	void initInput();
-	void initGraphics();
-	void mainLoop();
+	InputHandler* inputHandler;
+	Camera* camera;
+    std::vector<SimpleObject*> objects;
+
+    void create_object();
+	void init_GLFW();
+	void init_GLEW();
+	void init_input();
+	void init_graphics();
+	void main_loop();
 	void cleanup();
 };
 

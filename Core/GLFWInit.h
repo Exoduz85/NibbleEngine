@@ -3,6 +3,6 @@
 
 #include <GLFW/glfw3.h>
 
-GLFWwindow* initGLFW();
+GLFWwindow* init_GLFW();
 
 #endif
