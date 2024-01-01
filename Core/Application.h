@@ -5,11 +5,14 @@
 #include <GLFW/glfw3.h>
 #include "Config.h"
 #include <iostream>
+
 #include "../Graphics/Mesh.h"
 #include "../Graphics/Shader.h"
+#include "../Graphics/SimpleObject.h"
+#include "../Graphics/ShapeTypes.h"
+
 #include "Camera.h"
 #include "InputHandler.h"
-#include "../Graphics/SimpleObject.h"
 
 class Application {
 public:
@@ -25,7 +28,7 @@ private:
 	Camera* camera;
     std::vector<SimpleObject*> objects;
 
-    void create_object();
+    void create_object(ShapeTypes shape);
 	void init_GLFW();
 	void init_GLEW();
 	void init_input();

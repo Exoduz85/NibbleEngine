@@ -39,6 +39,7 @@ void Application::init_GLEW() {
 		glfwTerminate();
 		exit(EXIT_FAILURE);
 	}
+	glEnable(GL_DEPTH_TEST);
 }
 
 void Application::init_input()
@@ -55,19 +56,8 @@ void Application::init_graphics() {
 	);
 }
 
-void Application::create_object() {
-    std::vector<Vertex> newVertices = {
-        { glm::vec3(0.0f,  0.5f, 0.0f), glm::vec3(0.0f, 0.0f, 1.0f), glm::vec2(0.5f, 1.0f) },
-        { glm::vec3(0.5f, -0.5f, 0.0f), glm::vec3(0.0f, 0.0f, 1.0f), glm::vec2(1.0f, 0.0f) },
-        { glm::vec3(-0.5f, -0.5f, 0.0f), glm::vec3(0.0f, 0.0f, 1.0f), glm::vec2(0.0f, 0.0f) }
-    };
-
-    std::vector<unsigned int> newIndices = {
-            0, 1, 2
-    };
-
-    Mesh* newMesh = new Mesh(newVertices, newIndices);
-    SimpleObject* newObject = new SimpleObject(newMesh);
+void Application::create_object(ShapeTypes shape) {
+    SimpleObject* newObject = new SimpleObject(shader, shape);
     objects.push_back(newObject);
 }
 
@@ -81,8 +71,8 @@ void Application::main_loop() {
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         if (inputHandler->is_key_pressed(GLFW_KEY_1)) {
-            cout << "Creating a new object!" << endl;
-            create_object();
+            cout << "Creating a cube!" << endl;
+            create_object(ShapeTypes::Cube);
         }
 
 		shader->use();
@@ -94,7 +84,7 @@ void Application::main_loop() {
 		shader->set_mat4("view", view);
 		shader->set_mat4("projection", projection);
 
-        for (SimpleObject* obj : objects) {
+        for (const SimpleObject* obj : objects) {
             obj->draw();
         }
 

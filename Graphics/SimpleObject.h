@@ -1,16 +1,20 @@
 ﻿#ifndef SIMPLEOBJECT_H
 #define SIMPLEOBJECT_H
+
 #include "Mesh.h"
+#include "Shader.h"
+#include "ShapeTypes.h"
 
 class SimpleObject {
 public:
-	SimpleObject(Mesh* mesh) : mesh(mesh) {}
-
-	void draw() {
-		mesh->draw();
-	}
+	SimpleObject(Shader* usedShader, ShapeTypes shape);
+	static void draw();
 
 private:
-	Mesh* mesh;
+	static Shader* shader;
+	static Mesh* mesh;
+	struct MeshData;
+	static MeshData create_cube();
+	
 };
 #endif // SIMPLEOBJECT_H
