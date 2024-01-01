@@ -9,6 +9,8 @@ namespace config {
 	extern const float Fov;
 	extern const float NearPlane;
 	extern const float FarPlane;
+	extern const float CameraSpeed;
+	extern const float CameraSensitivity;
 }
 
 #endif

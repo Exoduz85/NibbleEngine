@@ -8,4 +8,6 @@ namespace config {
 	const float Fov = 45.0f;
 	const float NearPlane = 0.1f;
 	const float FarPlane = 100.0f;
+	const float CameraSpeed = 2.5f;
+	const float CameraSensitivity = 0.05f;
 }
