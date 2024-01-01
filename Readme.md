@@ -1,6 +1,6 @@
 # NibbleEngine
 
-NibbleEngine is a lightweight, open-source 2D game engine built using C++ and OpenGL. It is designed for educational purposes and is suitable for small to medium-sized indie projects.
+NibbleEngine is a lightweight, open-source 2D / 3D game engine built using C++ and OpenGL. It is designed for educational purposes and is suitable for small to medium-sized indie projects.
 
 ## Project Status
 
